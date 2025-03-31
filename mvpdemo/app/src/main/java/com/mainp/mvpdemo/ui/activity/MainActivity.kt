@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.mainp.mvpdemo.R
 import com.mainp.mvpdemo.databinding.ActivityMainBinding
 import com.mainp.mvpdemo.entity.User
 import com.mainp.mvpdemo.ui.contract.LoginContract
 import com.mainp.mvpdemo.ui.presenter.LoginPresenter
 
-class MainActivity : AppCompatActivity(), LoginContract.View{
+class MainActivity : AppCompatActivity(), LoginContract.View {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var presenter: LoginPresenter
+    private lateinit var presenter: LoginContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +24,7 @@ class MainActivity : AppCompatActivity(), LoginContract.View{
         binding.btnLogin.setOnClickListener {
             val user = User(fullName = "admin", password = "123456")
             if (user.isValid()) {
-                presenter.loginUser(user) 
+                presenter.loginUser(user)
             } else {
                 Toast.makeText(this, "Thông tin không hợp lệ", Toast.LENGTH_SHORT).show()
             }
