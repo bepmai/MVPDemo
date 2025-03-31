@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVPDemo</string>
+    <string name="mvp">MVP</string>
+    <string name="fullname">Họ và tên</string>
+    <string name="password">Mật khẩu</string>
+    <string name="login">Đăng nhâp</string>
+</resources>
